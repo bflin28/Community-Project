@@ -1,0 +1,261 @@
+/* Category Card Styles */
+.category-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--card-color), var(--card-color-light));
+  opacity: 0.8;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--card-color);
+}
+
+.category-card:hover::before {
+  height: 6px;
+  opacity: 1;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+  text-align: center;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.4;
+  text-align: center;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.card-arrow {
+  font-size: 1.5rem;
+  color: var(--card-color);
+  text-align: center;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.category-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Color variants */
+.category-card.blue {
+  --card-color: #3182ce;
+  --card-color-light: #63b3ed;
+}
+
+.category-card.green {
+  --card-color: #38a169;
+  --card-color-light: #68d391;
+}
+
+.category-card.orange {
+  --card-color: #dd6b20;
+  --card-color-light: #f6ad55;
+}
+
+.category-card.purple {
+  --card-color: #805ad5;
+  --card-color-light: #b794f6;
+}
+
+.category-card.teal {
+  --card-color: #319795;
+  --card-color-light: #4fd1c7;
+}
+
+.category-card.red {
+  --card-color: #e53e3e;
+  --card-color-light: #fc8181;
+}
+
+.category-card.yellow {
+  --card-color: #d69e2e;
+  --card-color-light: #f6e05e;
+}
+
+.category-card.pink {
+  --card-color: #d53f8c;
+  --card-color-light: #f687b3;
+}
+
+/* Category Selection Styles */
+.category-selection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.category-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.category-subtitle {
+  font-size: 1.2rem;
+  color: #718096;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Grid layout for category cards */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .category-card {
+    min-height: 180px;
+    padding: 1.25rem;
+  }
+  
+  .card-icon {
+    font-size: 2.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .category-title {
+    font-size: 2rem;
+  }
+  
+  .back-btn {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .category-card {
+    min-height: 160px;
+    padding: 1rem;
+  }
+  
+  .category-selection {
+    padding: 1rem;
+  }
+  
+  .category-title {
+    font-size: 1.8rem;
+  }
+  
+  .category-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Sub-task specific styles */
+.subtasks-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.no-subtasks {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.no-subtasks p:first-child {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.no-subtasks p:last-child {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
